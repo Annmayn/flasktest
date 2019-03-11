@@ -7,15 +7,16 @@ api = Api(app)
 
 @app.route('/')
 def indexPage():
-	return "Front Page"
+	return None
 
 #handle site.com/<id>
 class ToDoSimple(Resource):
 	def get(self, todo_id):
 		return 'hello'
 
-	def put(self, todo_id):
-		pass
+	def post(self, todo_id):
+		data = request.get_json()
+		return data['val']
 
 #handle site.com/image/id
 class ImageHandler(Resource):
